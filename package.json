@@ -1,0 +1,21 @@
+{
+  "name": "numbers-to-words",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "A CLI to convert number to words",
+  "main": "bin/index.js",
+  "bin": {
+    "numbers-to-words": "./bin/index.js"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "MIT"
+  ],
+  "author": "Aleksandr Belik",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^9.3.0"
+  }
+}
