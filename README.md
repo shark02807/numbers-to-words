@@ -36,4 +36,10 @@ For example:
 numbers-to-words convert 7,634,189
 ```
 
+Output:
+
+```
+seven million, six hundred thirty-four thousand, one hundred and eighty-nine
+```
+
 Use only 0-9 digits. It\'s possible to use comma as delimiter. Examples: 310; 5,240; 6,056,700; 6907.
