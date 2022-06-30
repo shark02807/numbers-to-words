@@ -9,6 +9,10 @@ Clone the repository:
 ```
 git clone https://github.com/shark02807/numbers-to-words.git
 ```
+Or by SSH
+```
+git@github.com:shark02807/numbers-to-words.git
+```
 
 Install the dependencies:
 
