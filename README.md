@@ -28,7 +28,7 @@ npm i -g
 
 ## Usage
 
-1. To convert number to words
+To convert number to words
 
 ```
 numbers-to-words convert [number]
