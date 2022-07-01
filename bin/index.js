@@ -25,4 +25,4 @@ program
     .argument('[number]', 'Number you\'d like to convert.')
     .action(convert);
 
-program.parse()
+program.parse();

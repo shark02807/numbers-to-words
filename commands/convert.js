@@ -3,8 +3,8 @@ import chalk from 'chalk';
 
 // Constants
 import {
-    MILLION_DELIMITER,
-    THOUSAND_DELIMITER,
+    TRILLION_STRING,
+    BILLION_STRING,
     MILLION_STRING,
     THOUSAND_STRING,
     MAX_NUMBER_LIMIT
@@ -13,42 +13,54 @@ import { ZERO } from '../src/constants/wordsByNumbers.js';
 import { ERROR_OUT_OF_LIMITS, ERROR_UNAVAILABLE_CHARACTER, ERROR_COMMAS_MESS } from '../src/constants/errors.js';
 
 // Utils
-import { getWordsOfHundred, getWordsStringByBigNumbers } from '../src/utils/convert.js';
+import { getWordsOfNumberChunk } from '../src/utils/convert.js';
 import { getErrorMessage } from '../src/utils/getErrorMessage.js';
 
 // Gathering the whole string by parts
-const getWordsFromNumber = (number) => {
+const getWordsFromNumber = (numberAsString) => {
     
     // If number === 0 just return the word
-    if (!number) {
+    if (numberAsString === '0') {
         return ZERO;
     }
 
-    let wordsString = '';
+    let wordsByChunks = [];
+    
+    // Make separate chunks of initial number
+    // Example: 12,345,678,901,234 => 
+    // hundreds: 234; thousands: 901; millions: 678; billions: 345; trillions: 12
+    const [
+        hundreds,
+        thousands,
+        millions,
+        billions,
+        trillions
+    ] = numberAsString.split(',').reverse().map(number => number ? +number : '');
 
-    // Forming string for million part
-    const millionInteger = Math.floor(number / MILLION_DELIMITER);
-    const millionRemain = number % MILLION_DELIMITER;
-    if (millionInteger) {
-        const { hundred, tens } = getWordsOfHundred(millionInteger);
-        wordsString += getWordsStringByBigNumbers(hundred, tens, MILLION_STRING, millionRemain);
+    if (trillions) {
+        wordsByChunks.push({ value: trillions, name: TRILLION_STRING });
+    }
+    if (billions) {
+        wordsByChunks.push({ value: billions, name: BILLION_STRING });
+    }
+    if (millions) {
+        wordsByChunks.push({ value: millions, name: MILLION_STRING });
+    }
+    if (thousands) {
+        wordsByChunks.push({ value: thousands, name: THOUSAND_STRING });
+    }
+    if (hundreds) {
+        wordsByChunks.push({ value: hundreds, name: '' });
     }
 
-    // Forming string for thousand part
-    const thousandInteger = Math.floor(millionRemain / THOUSAND_DELIMITER);
-    const hundredInteger = number % THOUSAND_DELIMITER;
-    if (thousandInteger) {
-        const { hundred, tens } = getWordsOfHundred(thousandInteger);
-        wordsString += getWordsStringByBigNumbers(hundred, tens, THOUSAND_STRING, hundredInteger);
-    }
-
-    // Forming string for hundred part
-    if (hundredInteger) {
-        const { hundred, tens } = getWordsOfHundred(hundredInteger);
-        wordsString += `${hundred}${(hundred && tens) ? ' ' : ''}${(wordsString || hundred) && tens ? 'and ' : ''}${tens}`;
-    }
+    // Forming final string by chunks strings
+    const resultString = wordsByChunks.reduce((acc, { value, name }, index) => {
+        const isLastChunk = index === (wordsByChunks.length - 1)
+        const wordsByChunk = getWordsOfNumberChunk({ value, isLastChunk, isPrevChunksFilled: wordsByChunks.length > 1, chunkNameString: name });
+        return `${acc}${acc ? ', ' : ''}${wordsByChunk}`;
+    }, '');
   
-    return wordsString;
+    return resultString;
 }
 
 // Parsing input of type string (stdin) to number
@@ -58,6 +70,9 @@ export default (numberAsString) => {
     
     // mask of only digits input: 6807; 143562; 12008 etc.
     const onlyNumberRegex = /^[,0-9]+$/;
+
+    // mask to add commas to number
+    const chunkWithThreeDigits = /\B(?=(\d{3})+(?!\d))/g;
     
     if (!onlyNumberRegex.test(numberAsString)) {
         // printing error in red since unavailable character was used
@@ -72,9 +87,13 @@ export default (numberAsString) => {
             // printing error in yellow since correct number was typed but over the limits
             console.error(chalk.yellow.bold(getErrorMessage(ERROR_OUT_OF_LIMITS)));
         } else {
+            // add commas to string to easy parsing on the next step inside getWordsFromNumber
+            const stringWithCommas = numberAsString.includes(',') 
+                ? numberAsString 
+                : numberAsString.replace(chunkWithThreeDigits, ',');
             // run the process of actual converting by call getWordsFromNumber
-            // printing error in green as 
-            console.log(chalk.green.bold(getWordsFromNumber(parsedNumber)));
+            // printing error in green as successful result of converting
+            console.log(chalk.green.bold(getWordsFromNumber(stringWithCommas)));
         }
     }
 }

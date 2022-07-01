@@ -6,8 +6,6 @@ export const CARDINAL_NUMBER_MAX = 12;
 export const SECOND_DECADE_NUMBER_MAX = 19;
 
 // Delimiters
-export const MILLION_DELIMITER = 1000000;
-export const THOUSAND_DELIMITER = 1000;
 export const HUNDRED_DELIMITER = 100;
 export const TENS_DELIMITER = 10;
 
@@ -19,3 +17,5 @@ export const BASIC_DECADE_SUFFIX = 'ty';
 export const HUNDRED_STRING = 'hundred';
 export const THOUSAND_STRING = 'thousand';
 export const MILLION_STRING = 'million';
+export const BILLION_STRING = 'billion';
+export const TRILLION_STRING = 'trillion';
