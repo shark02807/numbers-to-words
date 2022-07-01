@@ -17,17 +17,17 @@ const getWordsFromNumber = (number) => {
     const thousandInteger = Math.floor(millionRemain / THOUSAND_DELIMITER);
     const hundredInteger = number % THOUSAND_DELIMITER;
 
-    // String fo million part
+    // Forming string for million part
     if (millionInteger) {
         const { hundred, tens } = getWordsOfHundred(millionInteger);
         wordsString += getWordsStringByBigNumbers(hundred, tens, MILLION_STRING, millionRemain);
     }
-    // String fo thousand part
+    // Forming string for thousand part
     if (thousandInteger) {
         const { hundred, tens } = getWordsOfHundred(thousandInteger);
         wordsString += getWordsStringByBigNumbers(hundred, tens, THOUSAND_STRING, hundredInteger);
     }
-    // String fo hundred part
+    // Forming string for hundred part
     if (hundredInteger) {
         const { hundred, tens } = getWordsOfHundred(hundredInteger);
         wordsString += `${hundred}${(hundred && tens) ? ' ' : ''}${(wordsString || hundred) && tens ? 'and ' : ''}${tens}`;
@@ -46,13 +46,12 @@ export default (numberAsString) => {
     
     const isValidNumber = numberWithCommasRegex.test(numberAsString) || onlyNumberRegex.test(numberAsString);
     if (!isValidNumber) {
-        console.log(ERROR_MESSAGE);
-        // console.log('Please enter valid number. Use only 0-9 digits. It\'s possible to use comma as delimiter. Examples: 310; 5,240; 6,056,700; 6907.');
+        console.error(ERROR_MESSAGE);
     } else {
         const parsedNumber = +(numberAsString.replace(/,/g, ''));
         // check non-zero number
         if (!parsedNumber) {
-            console.log(ERROR_MESSAGE);
+            console.error(ERROR_MESSAGE);
         } else {
             console.log(getWordsFromNumber(parsedNumber));
         }
