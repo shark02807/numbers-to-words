@@ -1,3 +1,5 @@
+export const ZERO = 'zero';
+
 export const CardinalNumbersBasic = {
     1: 'one',
     2: 'two',

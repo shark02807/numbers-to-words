@@ -1,6 +1,7 @@
 # NUMBERS-TO-WORDS-CLI
 
 A CLI tool for converting the number into grammatically correct English words.
+Currently supports numbers from 0 to 1,000,000.
 
 ## Installation
 
@@ -37,13 +38,25 @@ numbers-to-words convert [number]
 For example:
 
 ```
-numbers-to-words convert 7,634,189
+numbers-to-words convert 987,453
 ```
 
 Output:
 
 ```
-seven million, six hundred thirty-four thousand, one hundred and eighty-nine
+nine hundred eighty-seven thousand, four hundred and fifty-three
 ```
 
-Use only 0-9 digits. It\'s possible to use comma as delimiter. Examples: 310; 5,240; 6,056,700; 6907.
+Available characters:  digits and comma.
+
+```
+0 1 2 3 4 5 6 7 8 9 ,
+```
+
+It's possible to type number in both ways: as is and by using comma as delimiter.
+
+Examples: 
+
+```
+310 | 5,240 | 1,000,000 | 6907 | 987,453
+```

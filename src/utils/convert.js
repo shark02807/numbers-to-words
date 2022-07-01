@@ -7,13 +7,13 @@ import {
     SECOND_DECADE_SUFFIX,
     BASIC_DECADE_SUFFIX,
     HUNDRED_STRING
-} from './constants/constants.js';
+} from '../constants/constants.js';
 import {
     CardinalNumbersBasic,
     CardinalNumbersUnique,
     SecondDecadeNumbersPrefix,
     BasicDecadePrefix
-} from './constants/wordsByNumbers.js';
+} from '../constants/wordsByNumbers.js';
 
 // Getting fully predefined word string for numbers 1 - 12
 const getWordByCardinalNumber = (number) => {

@@ -1,3 +1,5 @@
+export const MAX_NUMBER_LIMIT = 1000000;
+
 // Constants to define rules of words forming for cardinal numbers
 export const CARDINAL_NUMBER_BASIC_MAX = 9;
 export const CARDINAL_NUMBER_MAX = 12;
@@ -17,5 +19,3 @@ export const BASIC_DECADE_SUFFIX = 'ty';
 export const HUNDRED_STRING = 'hundred';
 export const THOUSAND_STRING = 'thousand';
 export const MILLION_STRING = 'million';
-
-export const ERROR_MESSAGE = 'Invalid number. Please read help to check supported format';
