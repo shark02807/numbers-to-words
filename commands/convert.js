@@ -64,7 +64,7 @@ const getWordsFromNumber = (numberAsString) => {
 }
 
 // Parsing input of type string (stdin) to number
-export default (numberAsString) => {
+export default (numberAsString, limit) => {
     // mask of numbers with commas: 6,807; 143,562; 12,008 etc.
     const numberWithCommasRegex = /^(?:\d{1,3}(?:,\d{3})*|\d+)$/;
     
@@ -83,7 +83,7 @@ export default (numberAsString) => {
     } else {
         const parsedNumber = +(numberAsString.replace(/,/g, ''));
         // check number limits
-        if (parsedNumber > MAX_NUMBER_LIMIT) {
+        if (limit && parsedNumber > MAX_NUMBER_LIMIT) {
             // printing error in yellow since correct number was typed but over the limits
             console.error(chalk.yellow.bold(getErrorMessage(ERROR_OUT_OF_LIMITS)));
         } else {

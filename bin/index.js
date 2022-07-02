@@ -23,6 +23,9 @@ program
     .command('convert')
     .description('Converts the number into grammatically correct English words.')
     .argument('[number]', 'Number you\'d like to convert.')
-    .action(convert);
+    .option('-n, --no-limit', 'limit off, converts up to 999 trillions.')
+    .action((str, options) => {
+        convert(str, options.limit);
+    });
 
 program.parse();
