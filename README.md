@@ -65,7 +65,7 @@ Examples:
 
 By default the tool supports numbers up to 1,000,000. To switch off the limit use the option. In that case available numbers are up to 999,999,999,999,999.
 
-Option
+Limit Option
 
 ```
 -n, --mo-limit
