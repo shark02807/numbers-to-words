@@ -61,11 +61,11 @@ Examples:
 310 | 5,240 | 1,000,000 | 6907 | 987,453
 ```
 
-## Option
+## Option Limit
 
 By default the tool supports numbers up to 1,000,000. To switch off the limit use the option. In that case available numbers are up to 999,999,999,999,999.
 
-Limit Option
+Option
 
 ```
 -n, --mo-limit
