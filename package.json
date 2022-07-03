@@ -10,7 +10,9 @@
   "scripts": {
     "lint": "eslint \"bin/*.js\" \"src/**/*.js\" \"tests/**/*.js\"",
     "lint-fix": "eslint --fix \"bin/*.js\" \"src/**/*.js\" \"tests/**/*.js\"",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "pre-commit": "npm run lint && npm test",
+    "prepare": "husky install"
   },
   "keywords": [
     "cli",
@@ -33,6 +35,7 @@
     "eslint-plugin-jest": "^26.5.3",
     "eslint-plugin-n": "^15.2.3",
     "eslint-plugin-promise": "^6.0.0",
+    "husky": "^8.0.1",
     "jest": "^28.1.2",
     "jest-environment-node": "^28.1.2"
   },

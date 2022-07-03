@@ -28,4 +28,4 @@ program
     convert(str, options.limit);
   });
 
-program.parse()
+program.parse();
