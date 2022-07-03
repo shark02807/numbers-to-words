@@ -26,6 +26,6 @@ program
   .option('-n, --no-limit', 'limit off, converts up to 999 trillions.')
   .action((str, options) => {
     convert(str, options.limit);
-  })
+  });
 
 program.parse()
