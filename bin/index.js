@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { program } from 'commander';
-import convert from '../commands/convert.js';
+import { convert } from '../src/commands/convert.js';
 
 program
     .name('numbers-to-words')

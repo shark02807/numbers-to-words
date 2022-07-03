@@ -92,3 +92,11 @@ Output
 ```
 twelve billion, three hundred forty-five million, six hundred seventy-eight thousand, nine hundred and one
 ```
+
+## Tests
+
+To run test suits type the next command:
+
+```
+npm test
+```

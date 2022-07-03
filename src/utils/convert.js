@@ -72,7 +72,7 @@ export const getWordsOfNumberChunk = ({ value, isLastChunk = false, isPrevChunks
     let connectionString = hundreds && tens ? ' ' : '';
     if (isLastChunk) {
         // add 'and' for hundreds chunk if there is something previously
-        connectionString = (isPrevChunksFilled || hundreds) && tens ? ' and ' : '';
+        connectionString = (isPrevChunksFilled || hundreds) && tens ? `${hundreds ? ' ' : ''}and ` : '';
     }
 
     return `${hundredsString}${connectionString}${tensString}${chunkNameString ? ` ${chunkNameString}` : ''}`;
