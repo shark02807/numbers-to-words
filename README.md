@@ -1,7 +1,7 @@
 # NUMBERS-TO-WORDS-CLI
 
 A CLI tool for converting the number into grammatically correct English words.
-Currently supports numbers from 0 to 1,000,000.
+Currently supports numbers from 0 to 999 trillion (up to 1,000,000 by default limit).
 
 ## Installation
 
