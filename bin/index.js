@@ -10,7 +10,7 @@ Description:
     Available characters:  digits (0-9) and comma (,).
     It's possible to type number in both ways: as is and by using comma as delimiter.
     Examples: 310 | 5,240 | 1,000,000 | 6907 | 987,453.
-    Currently supports numbers from 0 to 1,000,000.
+    Currently supports numbers from 0 to 999 trillion (up to 1,000,000 by default limit).
 
 Example call:
     $ numbers-to-words convert 987,453
