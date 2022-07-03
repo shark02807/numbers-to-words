@@ -100,3 +100,11 @@ To run test suits type the next command:
 ```
 npm test
 ```
+
+## Code check
+
+To run linter check type the next command:
+
+```
+npm run lint
+```

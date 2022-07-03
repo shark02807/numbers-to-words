@@ -10,7 +10,7 @@ export const SECOND_DECADE_NUMBER_MAX = 19;
 export const HUNDRED_DELIMITER = 100;
 export const TENS_DELIMITER = 10;
 
-// Suffixes 
+// Suffixes
 export const SECOND_DECADE_SUFFIX = 'teen';
 export const BASIC_DECADE_SUFFIX = 'ty';
 

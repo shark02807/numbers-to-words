@@ -4,7 +4,6 @@ import { ERROR_OUT_OF_LIMITS, ERROR_UNAVAILABLE_CHARACTER, ERROR_COMMAS_MESS } f
 
 // These are tests of the Check Input method right before converting the number.
 
-
 // range 0 - 9
 describe('check input', () => {
   test('typing unsupported symbols should return error message', () => {
@@ -16,7 +15,7 @@ describe('check input', () => {
     const result = checkErrorInput('22,22', true);
     expect(result.message).toEqual(getErrorMessage(ERROR_COMMAS_MESS));
   });
-  
+
   test('typing number bigger then the limit should return error message', () => {
     const result = checkErrorInput('1,000,001', true);
     expect(result.message).toEqual(getErrorMessage(ERROR_OUT_OF_LIMITS));

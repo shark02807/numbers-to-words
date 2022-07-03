@@ -2,7 +2,6 @@ import { getWordsFromNumber } from '../src/commands/convert';
 
 // These are tests of the Convert command.
 
-
 // range 0 - 9
 describe('cardinal numbers', () => {
   test('0', () => {
@@ -50,7 +49,7 @@ describe('second decade numbers', () => {
     const result = getWordsFromNumber('14');
     expect(result).toEqual('fourteen');
   });
-  
+
   test('19', () => {
     const result = getWordsFromNumber('19');
     expect(result).toEqual('nineteen');
@@ -68,7 +67,7 @@ describe('decades numbers', () => {
     const result = getWordsFromNumber('40');
     expect(result).toEqual('forty');
   });
-  
+
   test('70', () => {
     const result = getWordsFromNumber('70');
     expect(result).toEqual('seventy');
@@ -86,7 +85,7 @@ describe('common decade numbers', () => {
     const result = getWordsFromNumber('56');
     expect(result).toEqual('fifty-six');
   });
-  
+
   test('78', () => {
     const result = getWordsFromNumber('78');
     expect(result).toEqual('seventy-eight');
@@ -109,7 +108,7 @@ describe('hundreds numbers', () => {
     const result = getWordsFromNumber('245');
     expect(result).toEqual('two hundred and forty-five');
   });
-  
+
   test('768', () => {
     const result = getWordsFromNumber('768');
     expect(result).toEqual('seven hundred and sixty-eight');
@@ -132,7 +131,7 @@ describe('thousand numbers', () => {
     const result = getWordsFromNumber('35187');
     expect(result).toEqual('thirty-five thousand, one hundred and eighty-seven');
   });
-  
+
   test('298,743', () => {
     const result = getWordsFromNumber('298743');
     expect(result).toEqual('two hundred ninety-eight thousand, seven hundred and forty-three');
@@ -155,7 +154,7 @@ describe('millions numbers', () => {
     const result = getWordsFromNumber('25673912');
     expect(result).toEqual('twenty-five million, six hundred seventy-three thousand, nine hundred and twelve');
   });
-  
+
   test('368,241,419', () => {
     const result = getWordsFromNumber('368241419');
     expect(result).toEqual('three hundred sixty-eight million, two hundred forty-one thousand, four hundred and nineteen');
@@ -178,7 +177,7 @@ describe('billions numbers', () => {
     const result = getWordsFromNumber('76832645193');
     expect(result).toEqual('seventy-six billion, eight hundred thirty-two million, six hundred forty-five thousand, one hundred and ninety-three');
   });
-  
+
   test('555,666,777,888', () => {
     const result = getWordsFromNumber('555666777888');
     expect(result).toEqual('five hundred fifty-five billion, six hundred sixty-six million, seven hundred seventy-seven thousand, eight hundred and eighty-eight');
@@ -201,7 +200,7 @@ describe('trillions numbers', () => {
     const result = getWordsFromNumber('87767545323121');
     expect(result).toEqual('eighty-seven trillion, seven hundred sixty-seven billion, five hundred forty-five million, three hundred twenty-three thousand, one hundred and twenty-one');
   });
-  
+
   test('111,222,333,444,555', () => {
     const result = getWordsFromNumber('111222333444555');
     expect(result).toEqual('one hundred eleven trillion, two hundred twenty-two billion, three hundred thirty-three million, four hundred forty-four thousand, five hundred and fifty-five');
@@ -219,7 +218,7 @@ describe('numbers with gaps via zero', () => {
     const result = getWordsFromNumber('001');
     expect(result).toEqual('one');
   });
-  
+
   test('101', () => {
     const result = getWordsFromNumber('101');
     expect(result).toEqual('one hundred and one');

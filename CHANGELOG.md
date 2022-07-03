@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.4.0 / 2022-07-03
+
+### Added
+
+- ESlint.
+
+### Fixed
+
+- JavaScript files to keep clear linter state.
+
 ## 1.3.0 / 2022-07-03
 
 ### Added
