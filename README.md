@@ -51,7 +51,7 @@ numbers-to-words convert 987,453
 Output:
 
 ```
-nine hundred eighty-seven thousand, four hundred and fifty-three
+nine hundred and eighty-seven thousand, four hundred and fifty-three
 ```
 
 Available characters:  digits and comma.
@@ -97,7 +97,7 @@ numbers-to-words convert -n 12,345,678,901
 Output
 
 ```
-twelve billion, three hundred forty-five million, six hundred seventy-eight thousand, nine hundred and one
+twelve billion, three hundred and forty-five million, six hundred and seventy-eight thousand, nine hundred and one
 ```
 
 ## Tests
