@@ -69,7 +69,7 @@ export const getWordsOfNumberChunk = ({ value, isHundredChunkOfLongNumber = fals
   const tensString = tens ? getWordsOfTens(tens) : '';
 
   let connectionString = hundreds && tens ? ' ' : '';
-  // add 'and' after "hundred" word of for hundreds chunk
+  // add 'and' after "hundred" word
   connectionString = (isHundredChunkOfLongNumber || hundreds) && tens ? `${hundreds ? ' ' : ''}and ` : '';
 
   return `${hundredsString}${connectionString}${tensString}${chunkNameString ? ` ${chunkNameString}` : ''}`;

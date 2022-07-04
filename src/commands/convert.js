@@ -19,7 +19,7 @@ import { getErrorMessage } from '../utils/getErrorMessage.js';
 import { logMessage, messageTypes } from '../utils/logger.js';
 
 // Gathering the whole string by parts
-export const getWordsFromNumber = (numberAsString) => {
+export const getWordsFromNumberString = (numberAsString) => {
   // If number === 0 just return the word
   if (numberAsString === '0') {
     return ZERO;
@@ -106,7 +106,7 @@ export const convert = (numberAsString, limit = true) => {
   if (errorInput) {
     logMessage(errorInput);
   } else {
-    // run the process of actual converting by call getWordsFromNumber
-    logMessage({ type: messageTypes.success, message: getWordsFromNumber(numberAsString) });
+    // run the process of actual converting by call getWordsFromNumberString
+    logMessage({ type: messageTypes.success, message: getWordsFromNumberString(numberAsString) });
   }
 };
