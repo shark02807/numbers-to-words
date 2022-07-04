@@ -57,10 +57,9 @@ const getWordsOfTens = (tens) => {
 
 // Getting words string for numbers 1 - 999 - it could be billions, millions, thousands etc.
 // number = 1-999
-// isLastChunk = true if get hundreds chunk
-// isPrevChunksFilled = true if initial number is bigger than 999
+// isHundredChunkOfLongNumber = true if get hundred chunk of a long number (numbers above 1000)
 // chunkNameString = [billion, million, thousand]
-export const getWordsOfNumberChunk = ({ value, isLastChunk = false, isPrevChunksFilled = false, chunkNameString = '' }) => {
+export const getWordsOfNumberChunk = ({ value, isHundredChunkOfLongNumber = false, chunkNameString = '' }) => {
   // get number of hundreds
   const hundreds = Math.floor(value / HUNDRED_DELIMITER);
   const hundredsString = hundreds ? `${CardinalNumbersBasic[hundreds]} ${HUNDRED_STRING}` : '';
@@ -70,10 +69,8 @@ export const getWordsOfNumberChunk = ({ value, isLastChunk = false, isPrevChunks
   const tensString = tens ? getWordsOfTens(tens) : '';
 
   let connectionString = hundreds && tens ? ' ' : '';
-  if (isLastChunk) {
-    // add 'and' for hundreds chunk if there is something previously
-    connectionString = (isPrevChunksFilled || hundreds) && tens ? `${hundreds ? ' ' : ''}and ` : '';
-  }
+  // add 'and' after "hundred" word of for hundreds chunk
+  connectionString = (isHundredChunkOfLongNumber || hundreds) && tens ? `${hundreds ? ' ' : ''}and ` : '';
 
   return `${hundredsString}${connectionString}${tensString}${chunkNameString ? ` ${chunkNameString}` : ''}`;
 };

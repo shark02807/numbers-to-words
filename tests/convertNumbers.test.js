@@ -134,12 +134,12 @@ describe('thousand numbers', () => {
 
   test('298,743', () => {
     const result = getWordsFromNumber('298743');
-    expect(result).toEqual('two hundred ninety-eight thousand, seven hundred and forty-three');
+    expect(result).toEqual('two hundred and ninety-eight thousand, seven hundred and forty-three');
   });
 
   test('754,986', () => {
     const result = getWordsFromNumber('754986');
-    expect(result).toEqual('seven hundred fifty-four thousand, nine hundred and eighty-six');
+    expect(result).toEqual('seven hundred and fifty-four thousand, nine hundred and eighty-six');
   });
 });
 
@@ -152,17 +152,17 @@ describe('millions numbers', () => {
 
   test('25,673,912', () => {
     const result = getWordsFromNumber('25673912');
-    expect(result).toEqual('twenty-five million, six hundred seventy-three thousand, nine hundred and twelve');
+    expect(result).toEqual('twenty-five million, six hundred and seventy-three thousand, nine hundred and twelve');
   });
 
   test('368,241,419', () => {
     const result = getWordsFromNumber('368241419');
-    expect(result).toEqual('three hundred sixty-eight million, two hundred forty-one thousand, four hundred and nineteen');
+    expect(result).toEqual('three hundred and sixty-eight million, two hundred and forty-one thousand, four hundred and nineteen');
   });
 
   test('987,654,321', () => {
     const result = getWordsFromNumber('987654321');
-    expect(result).toEqual('nine hundred eighty-seven million, six hundred fifty-four thousand, three hundred and twenty-one');
+    expect(result).toEqual('nine hundred and eighty-seven million, six hundred and fifty-four thousand, three hundred and twenty-one');
   });
 });
 
@@ -175,17 +175,17 @@ describe('billions numbers', () => {
 
   test('76,832,645,193', () => {
     const result = getWordsFromNumber('76832645193');
-    expect(result).toEqual('seventy-six billion, eight hundred thirty-two million, six hundred forty-five thousand, one hundred and ninety-three');
+    expect(result).toEqual('seventy-six billion, eight hundred and thirty-two million, six hundred and forty-five thousand, one hundred and ninety-three');
   });
 
   test('555,666,777,888', () => {
     const result = getWordsFromNumber('555666777888');
-    expect(result).toEqual('five hundred fifty-five billion, six hundred sixty-six million, seven hundred seventy-seven thousand, eight hundred and eighty-eight');
+    expect(result).toEqual('five hundred and fifty-five billion, six hundred and sixty-six million, seven hundred and seventy-seven thousand, eight hundred and eighty-eight');
   });
 
   test('789,456,123,827', () => {
     const result = getWordsFromNumber('789456123827');
-    expect(result).toEqual('seven hundred eighty-nine billion, four hundred fifty-six million, one hundred twenty-three thousand, eight hundred and twenty-seven');
+    expect(result).toEqual('seven hundred and eighty-nine billion, four hundred and fifty-six million, one hundred and twenty-three thousand, eight hundred and twenty-seven');
   });
 });
 
@@ -198,17 +198,17 @@ describe('trillions numbers', () => {
 
   test('87,767,545,323,121', () => {
     const result = getWordsFromNumber('87767545323121');
-    expect(result).toEqual('eighty-seven trillion, seven hundred sixty-seven billion, five hundred forty-five million, three hundred twenty-three thousand, one hundred and twenty-one');
+    expect(result).toEqual('eighty-seven trillion, seven hundred and sixty-seven billion, five hundred and forty-five million, three hundred and twenty-three thousand, one hundred and twenty-one');
   });
 
   test('111,222,333,444,555', () => {
     const result = getWordsFromNumber('111222333444555');
-    expect(result).toEqual('one hundred eleven trillion, two hundred twenty-two billion, three hundred thirty-three million, four hundred forty-four thousand, five hundred and fifty-five');
+    expect(result).toEqual('one hundred and eleven trillion, two hundred and twenty-two billion, three hundred and thirty-three million, four hundred and forty-four thousand, five hundred and fifty-five');
   });
 
   test('827,561,543,896,742', () => {
     const result = getWordsFromNumber('827561543896742');
-    expect(result).toEqual('eight hundred twenty-seven trillion, five hundred sixty-one billion, five hundred forty-three million, eight hundred ninety-six thousand, seven hundred and forty-two');
+    expect(result).toEqual('eight hundred and twenty-seven trillion, five hundred and sixty-one billion, five hundred and forty-three million, eight hundred and ninety-six thousand, seven hundred and forty-two');
   });
 });
 
@@ -226,77 +226,77 @@ describe('numbers with gaps via zero', () => {
 
   test('1,001', () => {
     const result = getWordsFromNumber('1001');
-    expect(result).toEqual('one thousand, and one');
+    expect(result).toEqual('one thousand and one');
   });
 
   test('1,011', () => {
     const result = getWordsFromNumber('1011');
-    expect(result).toEqual('one thousand, and eleven');
+    expect(result).toEqual('one thousand and eleven');
   });
 
   test('10,011', () => {
     const result = getWordsFromNumber('10011');
-    expect(result).toEqual('ten thousand, and eleven');
+    expect(result).toEqual('ten thousand and eleven');
   });
 
   test('101,011', () => {
     const result = getWordsFromNumber('101011');
-    expect(result).toEqual('one hundred one thousand, and eleven');
+    expect(result).toEqual('one hundred and one thousand and eleven');
   });
 
   test('1,000,011', () => {
     const result = getWordsFromNumber('1000011');
-    expect(result).toEqual('one million, and eleven');
+    expect(result).toEqual('one million and eleven');
   });
 
   test('1,001,011', () => {
     const result = getWordsFromNumber('1001011');
-    expect(result).toEqual('one million, one thousand, and eleven');
+    expect(result).toEqual('one million, one thousand and eleven');
   });
 
   test('1,011,001', () => {
     const result = getWordsFromNumber('1011001');
-    expect(result).toEqual('one million, eleven thousand, and one');
+    expect(result).toEqual('one million, eleven thousand and one');
   });
 
   test('1,011,000', () => {
     const result = getWordsFromNumber('1011000');
-    expect(result).toEqual('one million, and eleven thousand');
+    expect(result).toEqual('one million, eleven thousand');
   });
 
   test('10,000,001', () => {
     const result = getWordsFromNumber('10000001');
-    expect(result).toEqual('ten million, and one');
+    expect(result).toEqual('ten million and one');
   });
 
   test('1,000,000,001', () => {
     const result = getWordsFromNumber('1000000001');
-    expect(result).toEqual('one billion, and one');
+    expect(result).toEqual('one billion and one');
   });
 
   test('1,000,000,000,001', () => {
     const result = getWordsFromNumber('1000000000001');
-    expect(result).toEqual('one trillion, and one');
+    expect(result).toEqual('one trillion and one');
   });
 
   test('1,000,001,000,001', () => {
     const result = getWordsFromNumber('1000001000001');
-    expect(result).toEqual('one trillion, one million, and one');
+    expect(result).toEqual('one trillion, one million and one');
   });
 
   test('1,000,000,001,001', () => {
     const result = getWordsFromNumber('1000000001001');
-    expect(result).toEqual('one trillion, one thousand, and one');
+    expect(result).toEqual('one trillion, one thousand and one');
   });
 
   test('1,001,000,000,001', () => {
     const result = getWordsFromNumber('1001000000001');
-    expect(result).toEqual('one trillion, one billion, and one');
+    expect(result).toEqual('one trillion, one billion and one');
   });
 
   test('1,001,000,001,001', () => {
     const result = getWordsFromNumber('1001000001001');
-    expect(result).toEqual('one trillion, one billion, one thousand, and one');
+    expect(result).toEqual('one trillion, one billion, one thousand and one');
   });
 
   test('0,000,000,001', () => {

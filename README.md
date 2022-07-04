@@ -3,6 +3,13 @@
 A CLI tool for converting the number into grammatically correct English words.
 Currently supports numbers from 0 to 999 trillion (up to 1,000,000 by default limit).
 
+- [Installation](#installation)
+- [Usage](#usage)
+- [Option Limit](#option-limit)
+- [Tests](#tests)
+- [Code check](#code-check)
+- [Numbers Grammar](#numbers-grammar)
+
 ## Installation
 
 Clone the repository:
@@ -108,3 +115,14 @@ To run linter check type the next command:
 ```
 npm run lint
 ```
+
+## Numbers Grammar
+
+This [page](https://linguapress.com/grammar/numbers.htm) was used as a source of numbers grammar information.
+
+Main points used:
+
+- A hyphen (-) is normally used in numbers between 21 and 99, whether these stand alone or are part of a larger number.
+- The word "hundred", except as a round number (a number ending in 00), is always followed by "and", and even if it occurs more than once in the number.
+- After 1000, if the word "hundred" does not occur in the number, it is the word "thousand" which is followed by "and" (without comma).
+- Whether writing long numbers in English, whether in figures or in words, it is normal to put a comma every three digits.

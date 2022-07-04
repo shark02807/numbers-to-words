@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.4.1 / 2022-07-04
+
+### Added
+
+- Updated README with Numbers Grammar section.
+
+### Fixed
+
+- Rules to form words string were aligned with British English grammar.
+
 ## 1.4.0 / 2022-07-03
 
 ### Added

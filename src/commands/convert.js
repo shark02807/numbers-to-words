@@ -7,7 +7,8 @@ import {
   LIMIT_MAX_NUMBER,
   REGEX_THREE_DIGITS_CHUNK,
   REGEX_COMMAS_ORDER,
-  REGEX_SUPPORTED_SYMBOLS
+  REGEX_SUPPORTED_SYMBOLS,
+  HUNDRED_DELIMITER
 } from '../constants/constants.js';
 import { ZERO } from '../constants/wordsByNumbers.js';
 import { ERROR_OUT_OF_LIMITS, ERROR_UNAVAILABLE_CHARACTER, ERROR_COMMAS_MESS } from '../constants/errors.js';
@@ -29,7 +30,7 @@ export const getWordsFromNumber = (numberAsString) => {
     ? numberAsString
     : numberAsString.replace(REGEX_THREE_DIGITS_CHUNK, ',');
 
-  const wordsByChunks = [];
+  const numberByChunks = [];
 
   // Make separate chunks of initial number
   // Example: 12,345,678,901,234 =>
@@ -43,31 +44,34 @@ export const getWordsFromNumber = (numberAsString) => {
   ] = stringWithCommas.split(',').reverse().map(number => number ? +number : '');
 
   if (trillions) {
-    wordsByChunks.push({ value: trillions, name: TRILLION_STRING });
+    numberByChunks.push({ value: trillions, name: TRILLION_STRING });
   }
   if (billions) {
-    wordsByChunks.push({ value: billions, name: BILLION_STRING });
+    numberByChunks.push({ value: billions, name: BILLION_STRING });
   }
   if (millions) {
-    wordsByChunks.push({ value: millions, name: MILLION_STRING });
+    numberByChunks.push({ value: millions, name: MILLION_STRING });
   }
   if (thousands) {
-    wordsByChunks.push({ value: thousands, name: THOUSAND_STRING });
+    numberByChunks.push({ value: thousands, name: THOUSAND_STRING });
   }
   if (hundreds) {
-    wordsByChunks.push({ value: hundreds, name: '' });
+    numberByChunks.push({ value: hundreds, name: '' });
   }
 
   // Forming final string by chunks strings
-  const resultString = wordsByChunks.reduce((acc, { value, name }, index) => {
-    const isLastChunk = index === (wordsByChunks.length - 1);
+  const resultString = numberByChunks.reduce((acc, { value, name }) => {
+    // if its a long number and current chunk is hundreds (not thousands or bigger)
+    const isHundredChunkOfLongNumber = !name && numberByChunks.length > 1;
     const wordsByChunk = getWordsOfNumberChunk({
       value,
-      isLastChunk,
-      isPrevChunksFilled: wordsByChunks.length > 1,
+      isHundredChunkOfLongNumber,
       chunkNameString: name
     });
-    return `${acc}${acc ? ', ' : ''}${wordsByChunk}`;
+    const isTwoDigitsNumber = value < HUNDRED_DELIMITER;
+    // add comma between chunks except the case when after 1000, if the word "hundred" does not occur in the number
+    const chunksInWordsSeparator = (isHundredChunkOfLongNumber && isTwoDigitsNumber) ? ' ' : ', ';
+    return `${acc}${acc ? chunksInWordsSeparator : ''}${wordsByChunk}`;
   }, '');
 
   return resultString;
