@@ -8,16 +8,16 @@ program
   .description(`
 Description:
     Available characters:  digits (0-9) and comma (,).
-    It's possible to type number in both ways: as is and by using comma as delimiter.
+    It's possible to type numbers in both ways: as is and by using a comma as a delimiter.
     Examples: 310 | 5,240 | 1,000,000 | 6907 | 987,453.
     Currently supports numbers from 0 to 999 trillion (up to 1,000,000 by default limit).
 
 Example call:
     $ numbers-to-words convert 987,453
 Output:
-    nine hundred eighty-seven thousand, four hundred and fifty-three
+    nine hundred and eighty-seven thousand, four hundred and fifty-three
     `)
-  .version('1.0.0');
+  .version('1.4.1');
 
 program
   .command('convert')
