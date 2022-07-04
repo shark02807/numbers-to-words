@@ -60,7 +60,7 @@ Available characters:  digits and comma.
 0 1 2 3 4 5 6 7 8 9 ,
 ```
 
-It's possible to type number in both ways: as is and by using comma as delimiter.
+It's possible to type numbers in both ways: as is and by using a comma as a delimiter.
 
 Examples: 
 
@@ -75,7 +75,7 @@ By default the tool supports numbers up to 1,000,000. To switch off the limit us
 Option
 
 ```
--n, --mo-limit
+-n, --no-limit
 ```
 
 To convert numbers bigger than 1,000,000
@@ -102,7 +102,7 @@ twelve billion, three hundred and forty-five million, six hundred and seventy-ei
 
 ## Tests
 
-To run test suits type the next command:
+To run test suites type the next command:
 
 ```
 npm test
