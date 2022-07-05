@@ -5,7 +5,7 @@ Currently supports numbers from 0 to 999 trillion (up to 1,000,000 by default li
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Option Limit](#option-limit)
+- [No Limit Option](#no-limit-option)
 - [Tests](#tests)
 - [Code check](#code-check)
 - [Numbers Grammar](#numbers-grammar)
@@ -68,7 +68,7 @@ Examples:
 310 | 5,240 | 1,000,000 | 6907 | 987,453
 ```
 
-## Option Limit
+## No Limit Option
 
 By default the tool supports numbers up to 1,000,000. To switch off the limit use the option. In that case available numbers are up to 999,999,999,999,999.
 
